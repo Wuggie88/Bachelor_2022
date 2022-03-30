@@ -10,6 +10,11 @@ public class CheckAnswer : MonoBehaviour
     public string fieldAns;
     public GameObject AnsObject;
     public GameObject AnsField;
+    public GameObject Score;
+    public GameObject Combo;
+    public int ScoreVal = 0;
+    public int ComboVal = 1;
+
 
 
     // Start is called before the first frame update
@@ -18,14 +23,20 @@ public class CheckAnswer : MonoBehaviour
         AnsObject = GameObject.Find("AssignmentTxt");
         AnsField = GameObject.Find("AnsField");
         answer = "DGADGAIEGQPIEGH";
-        StartCoroutine(GetAns());
-        
+        PullAnswer();
+        Score = GameObject.Find("ScoreTxt");
+        Combo = GameObject.Find("ComboTxt");
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void PullAnswer()
+    {
+        StartCoroutine(GetAns());
     }
 
     IEnumerator GetAns()
@@ -48,11 +59,18 @@ public class CheckAnswer : MonoBehaviour
         {
             //correct answer!
             Debug.Log("Correct");
+            AnsObject.GetComponent<Assignment>().ChangeAssignment();
+            ScoreVal = ScoreVal + 100 * ComboVal;
+            ComboVal++;
+            Score.GetComponent<Text>().text = "Score:" + ScoreVal;
+            Combo.GetComponent<Text>().text = "Combo: x" + ComboVal;
         }
         else
         {
             //incorrect
             Debug.Log("Not correct, actually wrong");
+            ComboVal = 1;
+            Combo.GetComponent<Text>().text = "Combo: x" + ComboVal;
         }
         
 
