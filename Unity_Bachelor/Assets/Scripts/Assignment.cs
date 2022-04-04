@@ -78,7 +78,7 @@ public class Assignment : MonoBehaviour
             case myEnums.ShootDiv2:
                 x = Random.Range(16, 80);
                 y = Random.Range(5, 16);
-                AssImg.GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/Map1"); //remember to change this image
+                AssImg.GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/Score1");
                 AssText.text = "Dividere Opgave 2 \n \n" +
                     "Du vil gerne finde ud af hvor mange kills du har i gennemsnit per runde \n \n" +
                     "Du har " + x +" kills og har spillet " + y + " runder \n \n" +
