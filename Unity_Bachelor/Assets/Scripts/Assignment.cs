@@ -13,28 +13,26 @@ public class Assignment : MonoBehaviour
     public GameObject AnsField;
     public GameObject AssImg;
 
+    //enum that controls what assignment is shown.
     public enum myEnums {ShootPyt1, ShootPyt2, ShootDiv1, ShootDiv2, HorseMul1, HorseMul2, HorseDiv1, HorseDiv2};
     public myEnums MyEnums;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Starts the coroutine that sets everything up, it's a coroutine so we're sure everything is done in the correct order
         StartCoroutine(StartUp());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator StartUp()
     {
+        //finds the assignment image, answer field and the input for the answer field.
         AssImg = GameObject.Find("AssImg");
         AnsField = GameObject.Find("AnsField");
         InputField input = AnsField.GetComponent<InputField>();
-        
         input.text = "";
+
+        //switch that's controlled by the enums and will load in the assignment, pictures and answer.
         switch (MyEnums)
         {
             case myEnums.ShootPyt1:
@@ -137,6 +135,7 @@ public class Assignment : MonoBehaviour
         yield return new WaitForEndOfFrame();
     }
 
+    //function that changes the assignment when the previous assignment is answered correctly.
     public void ChangeAssignment()
     {
         switch (MyEnums)

@@ -28,27 +28,26 @@ public class CheckAnswer : MonoBehaviour
         Combo = GameObject.Find("ComboTxt");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //function that starts a coroutine that pulls the correct answer for the current assignment.
     public void PullAnswer()
     {
         StartCoroutine(GetAns());
     }
 
+    //Coroutine that gets the correct answer after waiting 5 seconds. this is done, so you couldn't answer with a empty answer really fast and get through the first assignment.
     IEnumerator GetAns()
     {
         yield return new WaitForSeconds(5);
         answer = AnsObject.GetComponent<Assignment>().answer;
     }
 
+    //function that starts a coroutine to check the answer.
     public void CheckAns() {
         StartCoroutine(Check());
     }
 
+    //coroutine that checks the inputted answer, and calculates/manages score
+    //This is a coroutine, to mak sure we get the new answer for all assignments, set it and then wait before checking against the inputted field, else there's  a small chance it would do it in the wrong order.
     IEnumerator Check()
     {
         InputField input = AnsField.GetComponent<InputField>();
