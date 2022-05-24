@@ -34,7 +34,8 @@ public class CheckAnswer : MonoBehaviour
         StartCoroutine(GetAns());
     }
 
-    //Coroutine that gets the correct answer after waiting 5 seconds. this is done, so you couldn't answer with a empty answer really fast and get through the first assignment.
+    //Coroutine that gets the correct answer after waiting 5 seconds. this is done, 
+    //so you couldn't answer with a empty answer really fast and get through the first assignment.
     IEnumerator GetAns()
     {
         yield return new WaitForSeconds(5);
@@ -47,7 +48,9 @@ public class CheckAnswer : MonoBehaviour
     }
 
     //coroutine that checks the inputted answer, and calculates/manages score
-    //This is a coroutine, to mak sure we get the new answer for all assignments, set it and then wait before checking against the inputted field, else there's  a small chance it would do it in the wrong order.
+    //This is a coroutine, to mak sure we get the new answer for all assignments, 
+    //set it and then wait before checking against the inputted field, 
+    //else there's  a small chance it would do it in the wrong order.
     IEnumerator Check()
     {
         InputField input = AnsField.GetComponent<InputField>();

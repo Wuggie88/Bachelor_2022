@@ -42,7 +42,8 @@ public class Assignment : MonoBehaviour
                 AssText.text = "Pythagoras opgave 1" +
                     " \n \n Pythagoras kan bruges til at finde længden på C i en retvinklet trekant.\n" +
                     "Dette kan også bruges til at finde længden på tværs af en firkant, da den kan opdeles i to trekanter.\n" +
-                    "Forestil dig du har en lootbox og du vil gerne vide om der kan være et specifikt våben inden i, men våbnet er længere end kassens længde, derfor skal det ligge på tværs.\n" +
+                    "Forestil dig du har en lootbox og du vil gerne vide om der kan være et specifikt våben inden i, " +
+                    "men våbnet er længere end kassens længde, derfor skal det ligge på tværs.\n" +
                     "Våbnet er 87CM langt, og kassen er 80cm lang, og 45cm bred.\n \n" +
                     "Pythagoras ligning hedder A^2 + B^2 = C^2 \n \n" +
                     "A og B kan ses på billedet og den omvendte funktion af ^2 er kvadratrod. \n" +
